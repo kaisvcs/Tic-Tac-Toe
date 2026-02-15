@@ -2,24 +2,32 @@ import java.util.Scanner;
 
 public class TicTacToe {
     private static char[][] board = {{' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '}};
-    private static char currentPlayer = 'X';
-
+    private static char markerX = 'X';
+    private static char markerO = 'O';
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean gameRunning = true;
 
-        String name = prompt(scanner);
-        System.out.println("Welcome " + name + "!");
+        //String name = prompt(scanner);
+        //System.out.println("Welcome " + name + "!");
 
         while (gameRunning) {
             printBoard();
-            int col = getCol(scanner);
-            int row = getRow(scanner);
+            int col = getCol(scanner) - 1;
+            int row = getRow(scanner) - 1;
 
-            if (row >= 1 && row <= 3 && col >= 1 && col <= 3 && board[row][col] == ' ') {
-                board[col - 1][row - 1] = currentPlayer;
+            //if (row >= 1 && row <= 3 && col >= 1 && col <= 3 && board[row][col] == ' ') {
+                board[row][col] = markerX;
                 printBoard();
-            }
+            //}
+
+            /*int col2 = getCol(scanner);
+            int row2 = getRow(scanner);
+
+            if (row2 >= 1 && row2 <= 3 && col2 >= 1 && col2 <= 3 && board[row2][col2] == ' ') {
+                board[row2 - 1][col2 - 1] = markerO;
+                printBoard();
+            } */
 
             gameRunning = false;
         }
