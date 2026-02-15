@@ -16,18 +16,18 @@ public class TicTacToe {
             int col = getCol(scanner) - 1;
             int row = getRow(scanner) - 1;
 
-            //if (row >= 1 && row <= 3 && col >= 1 && col <= 3 && board[row][col] == ' ') {
+            if (row >= 0 && row <= 2 && col >= 0 && col <= 2 && board[row][col] == ' ') {
                 board[row][col] = markerX;
                 printBoard();
-            //}
+            }
 
-            /*int col2 = getCol(scanner);
-            int row2 = getRow(scanner);
+            int col2 = getCol(scanner) - 1;
+            int row2 = getRow(scanner) - 1;
 
-            if (row2 >= 1 && row2 <= 3 && col2 >= 1 && col2 <= 3 && board[row2][col2] == ' ') {
-                board[row2 - 1][col2 - 1] = markerO;
+            if (row2 >= 0 && row2 <= 2 && col2 >= 0 && col <= 2 && board[row2][col2] == ' ') {
+                board[row2][col2] = markerO;
                 printBoard();
-            } */
+            }
 
             gameRunning = false;
         }
