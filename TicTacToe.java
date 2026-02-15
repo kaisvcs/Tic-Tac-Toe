@@ -16,7 +16,7 @@ public class TicTacToe {
             int col = getCol(scanner);
             int row = getRow(scanner);
 
-            if (row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == ' ') {
+            if (row >= 1 && row <= 3 && col >= 1 && col <= 3 && board[row][col] == ' ') {
                 board[col - 1][row - 1] = currentPlayer;
                 printBoard();
             }
