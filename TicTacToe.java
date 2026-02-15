@@ -8,14 +8,11 @@ public class TicTacToe {
         Scanner scanner = new Scanner(System.in);
         boolean gameRunning = true;
 
-        //String name = prompt(scanner);
-        //System.out.println("Welcome " + name + "!");
-
         while (gameRunning) {
             System.out.println("__________________\n");
             printBoard();
-            int col = getCol(scanner) - 1;
             int row = getRow(scanner) - 1;
+            int col = getCol(scanner) - 1;
 
             if (row >= 0 && row <= 2 && col >= 0 && col <= 2 && board[row][col] == ' ') {
                 board[row][col] = markerX;
@@ -24,20 +21,13 @@ public class TicTacToe {
                     printBoard();
                     System.out.println("It's a Tie!");
                     gameRunning = false;
+                } else if (checkWin() == true) {
+                    System.out.println("__________________\n");
+                    printBoard();
+                    System.out.println("Win!");
+                    gameRunning = false;
                 }
             }
-            
-            /*
-            int col2 = getCol(scanner) - 1;
-            int row2 = getRow(scanner) - 1;
-
-            if (row2 >= 0 && row2 <= 2 && col2 >= 0 && col <= 2 && board[row2][col2] == ' ') {
-                board[row2][col2] = markerO;
-                printBoard();
-            } else if (isBoardFull() == true) {
-                System.out.println("Board is full!");
-                gameRunning = false;
-            } */
         }
     }
 
@@ -48,18 +38,13 @@ public class TicTacToe {
         }
     }
 
-    public static String prompt(Scanner scanner) {
-        System.out.print("Please enter a name: ");
-        return scanner.nextLine();
-    }
-
     public static int getCol(Scanner scanner) {
-        System.out.print("Please enter a column number (1-3): ");
+        System.out.print("Column number (1-3): ");
         return scanner.nextInt();
     }
 
     public static int getRow(Scanner scanner) {
-        System.out.print("Please enter a row number (1-3): ");
+        System.out.print("Row number (1-3): ");
         return scanner.nextInt();
     }
 
@@ -72,5 +57,12 @@ public class TicTacToe {
         return true;
     }
 
-    
+    public static boolean checkWin() {
+        for (int i = 0; i < 3; i++) {
+            if (board[i][0] == markerX && board[i][1] == markerX && board[i][2] == markerX) return true;
+            if (board[0][i] == markerX && board[1][i] == markerX && board[i][2] == markerX) return true;
+        }
+        return false;
+    } 
+
 }
