@@ -6,16 +6,21 @@ public class TicTacToe {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        Scanner getName = new Scanner(System.in);
         boolean gameRunning = true;
 
-        String name = prompt(getName);
+        String name = prompt(scanner);
         System.out.println("Welcome " + name + "!");
 
         while (gameRunning) {
             printBoard();
-            int column = getCol(scanner);
-            System.out.println("column: " + column);
+            int col = getCol(scanner);
+            int row = getRow(scanner);
+
+            if (row >= 0 && row < 3 && col >= 0 && col < 3 && board[row][col] == ' ') {
+                board[col - 1][row - 1] = currentPlayer;
+                printBoard();
+            }
+
             gameRunning = false;
         }
     }
@@ -27,13 +32,18 @@ public class TicTacToe {
         }
     }
 
-    public static String prompt(Scanner getName) {
+    public static String prompt(Scanner scanner) {
         System.out.print("Please enter a name: ");
-        return getName.nextLine();
+        return scanner.nextLine();
     }
 
     public static int getCol(Scanner scanner) {
         System.out.print("Please enter a column number (1-3): ");
+        return scanner.nextInt();
+    }
+
+    public static int getRow(Scanner scanner) {
+        System.out.print("Please enter a row number (1-3): ");
         return scanner.nextInt();
     }
 }
