@@ -6,7 +6,11 @@ public class TicTacToe {
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        Scanner getName = new Scanner(System.in);
         boolean gameRunning = true;
+
+        String name = prompt(getName);
+        System.out.println("Welcome " + name + "!");
 
         while (gameRunning) {
             printBoard();
@@ -19,5 +23,10 @@ public class TicTacToe {
             System.out.println(board[i][0] + " | " + board[i][1] + " | " + board[i][2]);
             if (i < 2) System.out.println("--+---+--");
         }
+    }
+
+    public static String prompt(Scanner getName) {
+        System.out.print("Please enter a name: ");
+        return getName.nextLine();
     }
 }
