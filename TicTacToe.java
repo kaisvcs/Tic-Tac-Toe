@@ -13,8 +13,8 @@ public class TicTacToe {
         System.out.println("Welcome " + name + "!");
 
         while (gameRunning) {
-            System.out.println("Please enter a column then row number (1-3).");
             printBoard();
+            System.out.print("Please enter a column number (1-3): ");
             gameRunning = false;
         }
     }
