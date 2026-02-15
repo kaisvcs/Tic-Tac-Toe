@@ -14,7 +14,8 @@ public class TicTacToe {
 
         while (gameRunning) {
             printBoard();
-            System.out.print("Please enter a column number (1-3): ");
+            int column = getCol(scanner);
+            System.out.println("column: " + column);
             gameRunning = false;
         }
     }
@@ -29,5 +30,10 @@ public class TicTacToe {
     public static String prompt(Scanner getName) {
         System.out.print("Please enter a name: ");
         return getName.nextLine();
+    }
+
+    public static int getCol(Scanner scanner) {
+        System.out.print("Please enter a column number (1-3): ");
+        return scanner.nextInt();
     }
 }
