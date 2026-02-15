@@ -12,24 +12,32 @@ public class TicTacToe {
         //System.out.println("Welcome " + name + "!");
 
         while (gameRunning) {
+            System.out.println("__________________\n");
             printBoard();
             int col = getCol(scanner) - 1;
             int row = getRow(scanner) - 1;
 
             if (row >= 0 && row <= 2 && col >= 0 && col <= 2 && board[row][col] == ' ') {
                 board[row][col] = markerX;
-                printBoard();
+                if (isBoardFull() == true) {
+                    System.out.println("__________________\n");
+                    printBoard();
+                    System.out.println("It's a Tie!");
+                    gameRunning = false;
+                }
             }
-
+            
+            /*
             int col2 = getCol(scanner) - 1;
             int row2 = getRow(scanner) - 1;
 
             if (row2 >= 0 && row2 <= 2 && col2 >= 0 && col <= 2 && board[row2][col2] == ' ') {
                 board[row2][col2] = markerO;
                 printBoard();
-            }
-
-            gameRunning = false;
+            } else if (isBoardFull() == true) {
+                System.out.println("Board is full!");
+                gameRunning = false;
+            } */
         }
     }
 
@@ -54,4 +62,15 @@ public class TicTacToe {
         System.out.print("Please enter a row number (1-3): ");
         return scanner.nextInt();
     }
+
+    private static boolean isBoardFull() {
+        for (int i = 0; i < 3; i++) {
+            for (int j = 0; j < 3; j++) {
+                if (board[i][j] == ' ') return false;
+            }
+        }
+        return true;
+    }
+
+    
 }
