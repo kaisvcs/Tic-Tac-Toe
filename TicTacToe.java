@@ -11,23 +11,21 @@ public class TicTacToe {
         while (gameRunning) {
             System.out.println("__________________\n");
             printBoard();
-            int row = getRow(scanner) - 1;
+            int row = getRow(scanner) - 1; // adjust user input to array index
             int col = getCol(scanner) - 1;
 
-            if (row >= 0 && row <= 2 && col >= 0 && col <= 2 && board[row][col] == ' ') {
-                board[row][col] = markerX;
-                if (isBoardFull() == true) {
-                    System.out.println("__________________\n");
-                    printBoard();
-                    System.out.println("It's a Tie!");
-                    gameRunning = false;
-                } else if (checkWin() == true) {
-                    System.out.println("__________________\n");
-                    printBoard();
-                    System.out.println("Win!");
-                    gameRunning = false;
-                }
-            }
+            board[row][col] = markerX;
+            if (isBoardFull() == true) {
+                System.out.println("__________________\n");
+                printBoard();
+                System.out.println("It's a Tie!");
+                gameRunning = false;
+            } else if (checkWin() == true) {
+                System.out.println("__________________\n");
+                printBoard();
+                System.out.println("Win!");
+                gameRunning = false;
+                } 
         }
     }
 
@@ -39,13 +37,49 @@ public class TicTacToe {
     }
 
     public static int getCol(Scanner scanner) {
-        System.out.print("Column number (1-3): ");
-        return scanner.nextInt();
+        int col;
+
+        while (true) {
+            System.out.print("Column number (1-3): ");
+
+            // Check user input for integer
+            if(!scanner.hasNextInt()) {                         
+                System.out.println("Please enter a number.");
+                scanner.next(); // discard invalid input
+                continue;
+            }
+
+            col = scanner.nextInt();
+        
+            if (col >= 1 && col <= 3) {
+                return col;
+            } else {
+                System.out.println("Invalid Input");
+            }
+        }
     }
 
     public static int getRow(Scanner scanner) {
-        System.out.print("Row number (1-3): ");
-        return scanner.nextInt();
+        int row;
+
+        while (true) {
+            System.out.print("Row number (1-3): ");
+
+            // Check user input for integer
+            if(!scanner.hasNextInt()) {                         
+                System.out.println("Please enter a number.");
+                scanner.next();
+                continue;
+            }
+
+            row = scanner.nextInt();
+        
+            if (row >= 1 && row <= 3) {
+                return row;
+            } else {
+                System.out.println("Invalid Input");
+            }
+        }
     }
 
     private static boolean isBoardFull() {
