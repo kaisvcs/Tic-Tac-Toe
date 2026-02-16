@@ -39,15 +39,12 @@ public class TicTacToe {
         int row;
         while (true) {
             System.out.print("Row number (1-3): ");
-
             if(!scanner.hasNextInt()) {                         // Check user input for integer                    
                 System.out.println("Please enter a number.");
                 scanner.next();                                 // discard invalid input
                 continue;
             }
-
             row = scanner.nextInt();
-        
             if (row >= 1 && row <= 3) {
                 return row;
             } else if (row == 4) {
