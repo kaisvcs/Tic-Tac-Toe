@@ -51,6 +51,8 @@ public class TicTacToe {
         
             if (row >= 1 && row <= 3) {
                 return row;
+            } else if (row == 4) {
+                System.exit(0);
             } else {
                 System.out.println("Invalid Input");
             }
