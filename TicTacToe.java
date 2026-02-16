@@ -7,7 +7,6 @@ public class TicTacToe {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean gameRunning = true;
-
         while (gameRunning) {
             System.out.println("__________________\n");
             printBoard();
@@ -59,15 +58,12 @@ public class TicTacToe {
         int col;
         while (true) {
             System.out.print("Column number (1-3): ");
-
             if(!scanner.hasNextInt()) {                             // Check user input for integer            
                 System.out.println("Please enter a number.");
                 scanner.next();                                    
                 continue;
             }
-
             col = scanner.nextInt();
-        
             if (col >= 1 && col <= 3) {
                 return col;
             } else {
@@ -94,5 +90,4 @@ public class TicTacToe {
         }
         return false;
     } 
-
 }
