@@ -36,39 +36,14 @@ public class TicTacToe {
         }
     }
 
-    public static int getCol(Scanner scanner) {
-        int col;
-
-        while (true) {
-            System.out.print("Column number (1-3): ");
-
-            // Check user input for integer
-            if(!scanner.hasNextInt()) {                         
-                System.out.println("Please enter a number.");
-                scanner.next(); // discard invalid input
-                continue;
-            }
-
-            col = scanner.nextInt();
-        
-            if (col >= 1 && col <= 3) {
-                return col;
-            } else {
-                System.out.println("Invalid Input");
-            }
-        }
-    }
-
     public static int getRow(Scanner scanner) {
         int row;
-
         while (true) {
             System.out.print("Row number (1-3): ");
 
-            // Check user input for integer
-            if(!scanner.hasNextInt()) {                         
+            if(!scanner.hasNextInt()) {                         // Check user input for integer                    
                 System.out.println("Please enter a number.");
-                scanner.next();
+                scanner.next();                                 // discard invalid input
                 continue;
             }
 
@@ -76,6 +51,27 @@ public class TicTacToe {
         
             if (row >= 1 && row <= 3) {
                 return row;
+            } else {
+                System.out.println("Invalid Input");
+            }
+        }
+    }
+    
+    public static int getCol(Scanner scanner) {
+        int col;
+        while (true) {
+            System.out.print("Column number (1-3): ");
+
+            if(!scanner.hasNextInt()) {                             // Check user input for integer            
+                System.out.println("Please enter a number.");
+                scanner.next();                                    
+                continue;
+            }
+
+            col = scanner.nextInt();
+        
+            if (col >= 1 && col <= 3) {
+                return col;
             } else {
                 System.out.println("Invalid Input");
             }
