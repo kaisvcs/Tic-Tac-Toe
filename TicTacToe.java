@@ -87,11 +87,14 @@ public class TicTacToe {
         return true;
     }
 
-    public static boolean checkWin() {
+    public static boolean checkWin() {                      // check all possible options for wins
         for (int i = 0; i < 3; i++) {
             if (board[i][0] == markerX && board[i][1] == markerX && board[i][2] == markerX) return true;
             if (board[0][i] == markerX && board[1][i] == markerX && board[i][2] == markerX) return true;
+            if (board[0][0]== markerX && board[1][1] == markerX && board[2][2] == markerX) return true;
+            if (board[0][2]== markerX && board[1][1] == markerX && board[2][0] == markerX) return true;
         }
+
         return false;
     } 
 
